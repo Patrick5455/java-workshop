@@ -10,9 +10,11 @@ public class Iterators {
 
         List array = new ArrayList();
 
-            array.add(5);
-            array.add(6);
-            array.add(7);
+        array.add(5);
+        array.add(6);
+        array.add(7);
+
+
 
         Iterator iterator = array.iterator();
 
@@ -22,12 +24,14 @@ public class Iterators {
          the current element that the iterator is pointing to from the collection
           */
 
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             //Point to next element
             int i = (Integer) iterator.next();
             //Print elements
             System.out.print(i + " ");
         }
+
+
 
 
 
@@ -44,18 +48,18 @@ public class Iterators {
         arrayList.add(3.1);
         arrayList.add(1.3);
 
-        System.out.println("Original List: "+ arrayList);
+        System.out.println("Original List: " + arrayList);
 
         ListIterator listIterator = arrayList.listIterator();
 
-        while (listIterator.hasNext()){
+        while (listIterator.hasNext()) {
             //point to next element
             double ele = (Double) listIterator.next();
             //round up to the decimal number
             listIterator.set(Math.round(ele)); // use the listIterator to mutate the element in the ext node
         }
 
-        System.out.println("Modified List -> "+ arrayList);
+        System.out.println("Modified List -> " + arrayList);
 
         //By calling listIterator.set(), we modify each of the items in the list
 
@@ -64,18 +68,15 @@ public class Iterators {
 
         Map map = new HashMap();
 
-
         map.put("Hello", 1);
         map.put("World", 2);
 
-        Iterator <Map.Entry> mapIterator = map.entrySet().iterator();
+        Iterator<Map.Entry> mapIterator = map.entrySet().iterator();
 
-        while (mapIterator.hasNext()){
-           Map.Entry entry = mapIterator.next();
-           System.out.printf("Key: %s Value: %s%n", entry.getKey(), entry.getValue()); }
-
-
-
+        while (mapIterator.hasNext()) {
+            Map.Entry entry = mapIterator.next();
+            System.out.printf("Key: %s Value: %s%n", entry.getKey(), entry.getValue());
+        }
 
     }
 }
