@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="java-database-chp7" />
         <module name="chp6" />
       </profile>
     </annotationProcessing>
@@ -14,6 +15,7 @@
       <module name="chapter14.main" target="1.8" />
       <module name="chapter14.test" target="1.8" />
       <module name="chp4-9" target="8" />
+      <module name="java-database-chp7" target="1.5" />
       <module name="steps" target="12" />
       <module name="steps-gradle.main" target="12" />
       <module name="steps-gradle.test" target="12" />
