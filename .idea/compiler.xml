@@ -6,19 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="chp4-18" />
-      </profile>
-      <profile name="Annotation profile for steps" enabled="true">
-        <sourceOutputDir name="../../../code/The-Java-Workshop-master/Chapter06/steps/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../code/The-Java-Workshop-master/Chapter06/steps/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="steps" />
+        <module name="chp6" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chapter14" target="1.8" />
       <module name="chapter14.main" target="1.8" />
       <module name="chapter14.test" target="1.8" />
+      <module name="chp4-9" target="8" />
+      <module name="steps" target="12" />
       <module name="steps-gradle.main" target="12" />
       <module name="steps-gradle.test" target="12" />
     </bytecodeTargetLevel>

@@ -3,7 +3,7 @@ package chp5_Exceptions.loggingExceptions;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoggingExceptions {
+public class Exercise1LoggingExceptions {
 
     /*
     /There are two main actions that you can performing when catching
