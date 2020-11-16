@@ -1,6 +1,9 @@
 package com.packtpub.steps;
 
 import javax.xml.crypto.Data;
+import java.nio.file.FileSystem;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -79,6 +82,12 @@ public class WeeklySteps {
 
 
     public static void main(String[] args) {
+
+       String home = System.getProperty("user.dir");
+
+       System.out.println( String.format("%s",Paths.get(home, "chp1-3").getParent()));
+
+       Paths.get(home);
 
         // Initialize sample data.
         DailyGoal dailyGoal = new DailyGoal(10000);
