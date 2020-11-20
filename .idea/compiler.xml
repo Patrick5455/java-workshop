@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="chp6" />
         <module name="chp7-jdbc" />
+        <module name="chp8-sockes-files-streams" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

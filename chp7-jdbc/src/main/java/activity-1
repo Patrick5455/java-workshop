@@ -1,0 +1,21 @@
+Track Your Progress
+
+    Set up database tables in the H2 database to track your progress through this course.
+    Create a table called student, where each record holds information on a student, such as you. Define the ID, first name, and last name columns.
+    Create a table called chapter, where each record holds information on a chapter. Define columns for an ID (use the chapter number) and chapter title. For simplicity, you can just enter the chapters up to and including this one.
+    Create a table to relate students to chapters, called student_progress. This table should have columns for the ID of a student, the ID of a chapter, and a date for when the chapter was completed. Use the SQL DATE type and pass the data as yyyy-MM-dd.
+
+     This table should have a composite primary key.
+
+    You can use the H2 web console to create the tables and insert records.
+    Create two Java programs that use JDBC:
+
+    One to query all the chapters a given student has completed, and when. Take as inputs the student's first and last name. This should generate output like the following:
+
+    BOB MARLEY
+    2019-03-01  2 Learning the Basics
+    2019-03-01  7 Databases and JDBC
+
+    One to insert chapter completion. Take as inputs the student's first and last name, along with a chapter number. The program should mark that chapter as having been completed today.
+
+    Because both programs take in user input, be sure to use a PreparedStatement in each to handle potential malicious input data. You can create these programs as part of the customer's project created previously in this chapter.

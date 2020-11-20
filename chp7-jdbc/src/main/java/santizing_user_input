@@ -1,0 +1,77 @@
+
+Sanitizing User Input
+
+To sanitize user input:
+
+    You can properly sanitize the data yourself. You could disallow characters that could form SQL syntax, for example.
+    You can use the PreparedStatement interface and set the values on the prepared statement. JDBC will then sanitize the input for you.
+
+Using Prepared Statements
+
+A JDBC prepared statement takes in a SQL statement with placeholders for the data values. With most databases, JDBC sends the SQL to the database to be compiled. When you send a SQL statement to a database, the database needs to compile the SQL into an internal format that is native to the database, from which the database can execute the statement.
+
+With a regular statement, you can provide a SQL statement to methods such as executeQuery() and executeUpdate(). You can reuse the Statement and provide a completely different SQL statement.
+
+With a PreparedStatement, on the other hand, you prepare the statement with a SQL string, and that is all you get. Luckily, though, you provide placeholders for the data values. This means that you can reuse a PreparedStatement to insert multiple records into a table, for example.
+
+From Exercise 5, Modifying email Data, we use an UPDATE statement:
+
+UPDATE email
+SET EMAIL_ADDRESS = 'bob.marley@another_company.com'
+WHERE customer_id = 1
+AND email_type = 'WORK';
+
+With a PreparedStatement, you would use a question mark, ? as a placeholder for the input values:
+
+String sql = "UPDATE email " +
+  SET EMAIL_ADDRESS = ? " +
+  WHERE customer_id = ? " +
+  AND email_type = ? ";
+
+    Note: In a prepared statement, you do not need to place single quotes around string placeholders. JDBC will take care of that for you.
+
+These placeholders need to be filled in prior to using PreparedStatement. For example:
+
+statement = conn.prepareStatement(sql);
+statement.setString(1, "bob.marley@another_company.com");
+statement.setLong(2, 1L);
+statement.setString(3, "WORK");
+int rowsChanged = statement.executeUpdate();
+
+Pass your SQL string, with placeholders, to the prepareStatement() method on a connection. Then, call setString(), setLong(), and so on, to fill in the placeholder values. With each set method call, you pass the index of the placeholder to fill, starting with 1 for the first placeholder. Then, pass the value to fill in. JDBC will handle the prevention of SQL injection attacks.
+
+As for a regular Statement, you can call executeQuery() to perform a SQL query, or executeUpdate() to modify the database. The executeUpdate() method handles INSERT, UPDATE, and DELETE SQL statements.
+
+In this example, executeUpdate() returns the number of rows in the table that was modified.
+
+One of the primary benefits of using prepared statements is that JDBC will sanitize the input values so that you don't have to. The other primary benefit is improved performance. If you execute the same SQL statement again and again, or a nearly similar statement with just different values, then using a prepared statement will speed things up, mostly due to pre-compiling the statement.
+Transactions and Rollback
+
+In relational databases, transaction groups a set of SQL statements together. Either all the statements succeed, or the transaction will get rolled back, undoing the statements. In addition, databases treat all the statements within a transaction as happening at the same time, which helps to ensure that the data has integrity.
+
+In JDBC, a transaction continues until you call commit() on the connection. If there is a failure, you should call rollback() on the connection to restore the data to the state it held prior to the transaction.
+
+By default, a JDBC connection starts in auto-commit mode. This means that each JDBC connection gets committed one at a time. If you want to group a few statements together in a transaction, you first need to turn off auto-commit mode:
+
+conn.setAutoCommit(false);
+
+    Note: After turning off auto-commit mode, you should turn it back on when done accessing the database.
+
+When you want to end a transaction and commit the results to the database, call commit():
+
+conn.commit();
+
+If an SQLException gets thrown, you'll want to roll back the transaction:
+
+} catch (SQLException e) {
+    e.printStackTrace();
+    try {
+        if (conn != null) {
+        conn.rollback();
+        }
+    } catch (SQLException nested) {
+        nested.printStackTrace();
+    }
+}
+
+This code shows one of the most tedious parts of working with JDBC. In your exception handler for an SQLException, the calls made, such as rollback(), can also throw another SQLException, which you need to catch. You'll find that JDBC code is full of try-catch-finally blocks with nested try-catch blocks. Exercise 7, Using Prepared Statements with Transactions, shows this technique in action.
