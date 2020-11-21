@@ -6,13 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.Stream.Builder;
 
 public class ListingFiles {
 
@@ -41,48 +34,34 @@ public class ListingFiles {
         //we will print the first five
         String [] fileNames = new File (oSTempFolder).list();
 
-       // final int[] count = {0};
         final int[] countA = {0};
         assert fileNames != null;
+
         System.out.println("JAVA.IO IMPLEMENTATION");
-        //maintain order by entry
-        Arrays.stream(fileNames).limit(5).
-                collect(Collectors.toMap
-                        (String::toString, String::toString,
-                                (file1, file2) -> String.format("%s|%s", file1, file2),
-                                //maintain order by entry
-                                LinkedHashMap::new
-                        )).values().stream().forEach(new Consumer<String>() {
-                        @Override
-                        public void accept(String s) {
-                            countA[0]++;
-                            System.out.printf("%d.) %s%n", countA[0], s);
-
-                        }
-                    });
-
-
-
+        Arrays.stream(fileNames).limit(10).forEach(
+                s -> {
+                  countA[0]++;
+                  System.out.printf("%d.) %s%n", countA[0], s);
+              });
         System.out.println();
+
+
+
+
+
+
     /*THe above implementation uses java.io
     but we can use another implementation with java.nio*/
 
+
         DirectoryStream<Path> directoryStream;
-
         directoryStream = Files.newDirectoryStream(Paths.get(oSTempFolder));
-
         System.out.println("JAVA.NIO IMPLEMENTATION");
-
-
         Iterator<Path> pathIterator = directoryStream.iterator();
 
         int count1 =0;
-        while (pathIterator.hasNext() && count1<5){
-            count1++;
-           String path =  pathIterator.next().toString();
-           System.out.printf("%d.) %s%n", count1, path);
-        }
-
+        while (pathIterator.hasNext() && count1<10)
+           System.out.printf("%d.) %s%n", ++count1, pathIterator.next().toString());
         System.out.println();
 
     }
