@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chp9-java-http/chp9-java-http.iml" filepath="$PROJECT_DIR$/chp9-java-http/chp9-java-http.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-workshop.iml" filepath="$PROJECT_DIR$/.idea/java-workshop.iml" />
     </modules>
   </component>

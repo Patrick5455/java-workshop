@@ -1,0 +1,43 @@
+### Dealing With Slow Connections
+
+HttpUrlConnection offers two methods to help with slow connections:
+
+connection.setConnectionTimeOut(6000);
+connection.setReadTimeOut(6000);
+
+Call setConnectionTimeOut() to adjust the timeout when establishing the network
+coonection to the remote site. The value you give as input should be in milliseconds.
+
+Call setReadTimeOut to adjust the timeout when reading data on the inputStream.
+Again, provide the new timeout input in milliseconds.
+
+
+### Requesting Parameters
+With many web services, you'll have to input parameters when making
+a request. HTTP parameters are encoded as name-value pairs.
+For example, consider the following:
+
+"http://example.com?name1=value1&name2=value2";
+
+In this case, name2 is the name of a parameter, and so is name2.
+The value of the name1 parameter is value1 and the value1 of name2 is value2.
+Parameters are separated by ampersand character - &.
+
+{Note :
+
+If the parameter values are simple alphanumeric values, you can
+enter them as shown in the example. If not, you need to encode the
+parameter data using URL encoding. You can refer to the
+java.net.URLEncode class for more details on this}
+
+
+
+### Handling Redirects
+In many cases, where you make an HTTP request to a server, the server will respond
+with a status indicating a redirect. This tells your application that the resource has moved to
+a new location, in other words, you should use a new URL.
+
+HttpUrlConnection will automatically follow HTTP redirects.
+You can turn this off using the setInstanceFollowRedirects() method.
+
+connection.setInstanceFollowRedirects(false);
