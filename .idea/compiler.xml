@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chp9-java-http" />
+        <module name="chp13-Functional-Programming" />
         <module name="chp6" />
         <module name="chp7-jdbc" />
         <module name="chp8-sockes-files-streams" />

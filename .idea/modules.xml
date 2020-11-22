@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chp13-Functional-Programming/chp13-Functional-Programming.iml" filepath="$PROJECT_DIR$/chp13-Functional-Programming/chp13-Functional-Programming.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-workshop.iml" filepath="$PROJECT_DIR$/.idea/java-workshop.iml" />
     </modules>
   </component>
