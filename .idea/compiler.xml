@@ -10,6 +10,7 @@
         <module name="chp13-Functional-Programming" />
         <module name="chp14-recursion" />
         <module name="chp6" />
+        <module name="chp16-Predicates and Other Functional Interfaces" />
         <module name="chp7-jdbc" />
         <module name="chp8-sockes-files-streams" />
       </profile>
