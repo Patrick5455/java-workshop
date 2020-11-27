@@ -17,6 +17,8 @@
         <option value="$PROJECT_DIR$/chp13-Functional-Programming/pom.xml" />
         <option value="$PROJECT_DIR$/chp14-recursion/pom.xml" />
         <option value="$PROJECT_DIR$/chp16-Predicates and Other Functional Interfaces/pom.xml" />
+        <option value="$PROJECT_DIR$/chp17-reactive-programming/pom.xml" />
+        <option value="$PROJECT_DIR$/chp18-unit-testing/pom.xml" />
       </list>
     </option>
   </component>

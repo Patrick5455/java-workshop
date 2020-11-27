@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -13,12 +14,15 @@
         <module name="chp16-Predicates and Other Functional Interfaces" />
         <module name="chp7-jdbc" />
         <module name="chp8-sockes-files-streams" />
+        <module name="chp17-reactive-programming-with-java-flow" />
+        <module name="chp18-unit-testing" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chapter14" target="1.8" />
       <module name="chapter14.main" target="1.8" />
       <module name="chapter14.test" target="1.8" />
+      <module name="chp17-reactive-programming-with-java-flow" target="1.5" />
       <module name="chp4-9" target="8" />
       <module name="java-database-chp7" target="1.5" />
       <module name="steps" target="12" />
